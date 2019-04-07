@@ -2,7 +2,7 @@
 
 En el fichero <b>source</b> se pueden encontrar los codigos, o se puede descargar la carpeta completa para poder importar directamente el proyecto en eclipse, teniendo solo que crear las tablas en la base de datos y modificar la url del servidor.
 
-El proyecto se estructura en 3 paquetes principales. Dos de ellos asociados a las tablas de la base de datos, cliente y factura(<i>por implementar</i>).Y por separado un paquete que solo contiene la clase de conexion a la base de datos. El código está bastante comentado, especialmente en el paquete cliente ( ya que el paquete factura es una copia con diferentes atributos correspondientes a los que posea factura en la base de datos).
+El proyecto se estructura en 3 paquetes principales. Dos de ellos asociados a las tablas de la base de datos, cliente y factura(<s>por implementar</s>).Y por separado un paquete que solo contiene la clase de conexion a la base de datos. El código está bastante comentado, especialmente en el paquete cliente ( ya que el paquete factura es una copia con diferentes atributos correspondientes a los que posea factura en la base de datos).
 
 La estructura de los paquetes se explica relativamente bien en los comentarios del código.
 
