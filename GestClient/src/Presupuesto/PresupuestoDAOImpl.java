@@ -95,7 +95,7 @@ public List<Presupuesto> obtener(){
 		
 		boolean actualizar = false;
 		
-		String updt="UPDATE presupuestos SET Precio='"+presupuesto.getPrecio()+"', Cliente='"+presupuesto.getCliente()+" WHERE NPresupuesto="+presupuesto.getNPresupuesto();
+		String updt="UPDATE presupuestos SET Precio='"+presupuesto.getPrecio()+"', Cliente='"+presupuesto.getCliente()+"' WHERE NPresupuesto="+presupuesto.getNPresupuesto();
 		try {
 			connect = Conexion.conectar();
 			stm = connect.createStatement();

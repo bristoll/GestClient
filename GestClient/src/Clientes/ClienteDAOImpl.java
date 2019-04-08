@@ -91,7 +91,7 @@ public List<Cliente> obtener(){
 		
 		boolean actualizar = false;
 		
-		String updt="UPDATE clientes SET Nombre='"+cliente.getNombre()+"', Telefono='"+cliente.getTelefono() +" WHERE ID="+cliente.getID();
+		String updt="UPDATE clientes SET Nombre='"+cliente.getNombre()+"', Telefono='"+cliente.getTelefono() +"' WHERE ID="+cliente.getID();
 		try {
 			connect = Conexion.conectar();
 			stm = connect.createStatement();
