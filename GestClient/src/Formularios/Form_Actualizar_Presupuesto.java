@@ -229,10 +229,22 @@ public class Form_Actualizar_Presupuesto extends JFrame {
 		contentPane.add(btnActualizar);
 		
 		JButton btnMen = new JButton("Men\u00FA");
+		btnMen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EleccionActualizar Menu = new EleccionActualizar();
+				Menu.setVisible(true);
+				dispose();
+			}
+		});
 		btnMen.setBounds(12, 360, 97, 25);
 		contentPane.add(btnMen);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnSalir.setBounds(326, 360, 97, 25);
 		contentPane.add(btnSalir);
 		

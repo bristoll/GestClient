@@ -99,10 +99,22 @@ public class Form_Eliminacion extends JFrame {
 		contentPane.add(btnEliminar);
 		
 		JButton btnMen = new JButton("Men\u00FA");
+		btnMen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu_principal menu = new Menu_principal();
+				menu.setVisible(true);
+				dispose();
+			}
+		});
 		btnMen.setBounds(11, 215, 97, 25);
 		contentPane.add(btnMen);
 		
 		JButton btnSallir = new JButton("Sallir");
+		btnSallir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnSallir.setBounds(323, 215, 97, 25);
 		contentPane.add(btnSallir);
 	}

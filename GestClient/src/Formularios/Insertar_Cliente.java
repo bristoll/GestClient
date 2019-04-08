@@ -91,10 +91,22 @@ public class Insertar_Cliente extends JFrame {
 		contentPane.add(btnRegistrar);
 		
 		JButton btnMen = new JButton("Men\u00FA");
+		btnMen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EleccionInsertar menu = new EleccionInsertar();
+				menu.setVisible(true);
+				dispose();
+			}
+		});
 		btnMen.setBounds(12, 215, 97, 25);
 		contentPane.add(btnMen);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit( 0 ); 
+			}
+		});
 		btnSalir.setBounds(323, 215, 97, 25);
 		contentPane.add(btnSalir);
 	}

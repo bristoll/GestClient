@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu_principal extends JFrame {
 
@@ -40,10 +42,24 @@ public class Menu_principal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnFormInsercin = new JButton("Form. Inserci\u00F3n");
+		btnFormInsercin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EleccionInsertar ventEleccion = new EleccionInsertar();
+				ventEleccion.setVisible(true);
+				dispose();
+			}
+		});
 		btnFormInsercin.setBounds(151, 59, 180, 55);
 		contentPane.add(btnFormInsercin);
 		
 		JButton btnFormEliminacin = new JButton("Form. Eliminaci\u00F3n");
+		btnFormEliminacin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Eliminacion VentE = new Form_Eliminacion();
+				VentE.setVisible(true);
+				dispose();
+			}
+		});
 		btnFormEliminacin.setBounds(151, 126, 180, 55);
 		contentPane.add(btnFormEliminacin);
 		
@@ -52,6 +68,13 @@ public class Menu_principal extends JFrame {
 		contentPane.add(btnFormConsulta);
 		
 		JButton btnFormActualizacin = new JButton("Form. Actualizaci\u00F3n");
+		btnFormActualizacin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					EleccionActualizar VentA = new EleccionActualizar();
+					VentA.setVisible(true);
+					dispose();
+			}
+		});
 		btnFormActualizacin.setBounds(151, 262, 180, 55);
 		contentPane.add(btnFormActualizacin);
 	}

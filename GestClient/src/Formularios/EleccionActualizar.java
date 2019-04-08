@@ -6,23 +6,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class EleccionInsertar extends JFrame {
+public class EleccionActualizar extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] e) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EleccionInsertar frame = new EleccionInsertar();
+					EleccionActualizar frame = new EleccionActualizar();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +33,7 @@ public class EleccionInsertar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EleccionInsertar() {
+	public EleccionActualizar() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -42,31 +41,27 @@ public class EleccionInsertar extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblSeleccionaElElemento = new JLabel("Selecciona el elemento que deseas insertar");
-		lblSeleccionaElElemento.setBounds(89, 30, 254, 16);
-		contentPane.add(lblSeleccionaElElemento);
-		
-		JButton btnNuevoCliente = new JButton("Nuevo Cliente");
-		btnNuevoCliente.addActionListener(new ActionListener() {
+		JButton btnActualizarCliente = new JButton("Actualizar Cliente");
+		btnActualizarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Insertar_Cliente VenIC = new Insertar_Cliente();
-				VenIC.setVisible(true);
+				Form_Actualizar_Cliente VentA = new Form_Actualizar_Cliente();
+				VentA.setVisible(true);
 				dispose();
 			}
 		});
-		btnNuevoCliente.setBounds(141, 88, 150, 25);
-		contentPane.add(btnNuevoCliente);
+		btnActualizarCliente.setBounds(150, 67, 131, 45);
+		contentPane.add(btnActualizarCliente);
 		
-		JButton btnNuevaPresupuesto = new JButton("Nuevo Presupuesto");
-		btnNuevaPresupuesto.addActionListener(new ActionListener() {
+		JButton btnActualizarPresupuesto = new JButton("Actualizar Presupuesto");
+		btnActualizarPresupuesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Insertar_Presupuesto VenIP = new Insertar_Presupuesto();
-				VenIP.setVisible(true);
+				Form_Actualizar_Presupuesto VentA = new Form_Actualizar_Presupuesto();
+				VentA.setVisible(true);
 				dispose();
 			}
 		});
-		btnNuevaPresupuesto.setBounds(141, 126, 150, 25);
-		contentPane.add(btnNuevaPresupuesto);
+		btnActualizarPresupuesto.setBounds(132, 125, 168, 45);
+		contentPane.add(btnActualizarPresupuesto);
 		
 		JButton btnMen = new JButton("Men\u00FA");
 		btnMen.addActionListener(new ActionListener() {
@@ -82,10 +77,11 @@ public class EleccionInsertar extends JFrame {
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit( 0 ); 
+				System.exit(0);
 			}
 		});
 		btnSalir.setBounds(323, 215, 97, 25);
 		contentPane.add(btnSalir);
 	}
+
 }
