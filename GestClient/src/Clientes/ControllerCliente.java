@@ -45,6 +45,11 @@ public class ControllerCliente {
 		clientes=dao.obtener();
 		vista.verClientes(clientes);//Llamamos a ver clientes para mostrar el resultado
 	}
+	//LLamada al metodo para buscar 
+	public void Buscar(Cliente cliente) {
+		ClienteDAO dao = new ClienteDAOImpl();
+		vista.verCliente(cliente);
+		dao.Buscar(cliente);
 	
-	
+	}
 }

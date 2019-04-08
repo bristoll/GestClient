@@ -46,5 +46,9 @@ public class ControllerPresupuesto {
 		vista.verPresupuestos(presupuestos);//Llamamos a ver presupuestos para mostrar el resultado
 	}
 	
-	
+	public void Buscar(Presupuesto presupuesto) {
+		PresupuestoDAO dao = new PresupuestoDAOImpl();
+		vista.verPresupuesto(presupuesto);
+		dao.Buscar(presupuesto);
+	}
 }

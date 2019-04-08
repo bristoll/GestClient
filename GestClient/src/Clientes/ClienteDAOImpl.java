@@ -126,5 +126,48 @@ public List<Cliente> obtener(){
 	
 }
 	
+	public boolean Buscar(Cliente cliente){
+		boolean Buscar=false;
+		//objetos para la conexion a la base de datos
+		Connection co = null;
+		Statement stm = null;
+		ResultSet rs=null;
+		
+		//Establecemos el query para obtener los datos de la base de datos
+		String select= "SELECT * FROM clientes WHERE ID="+cliente.getID();
+		
+		//instanciamos un nuevo arraylist para guardar los datos que vayamos sacando
+		//List<Cliente> listacliente = new ArrayList<Cliente>();
+		
+		try {
+			//Conexion a la base de datos
+			co = Conexion.conectar();
+			stm = co.createStatement();
+			rs = stm.executeQuery(select);
+			
+			//mientras queden registros ir metiendo las propiedades de cada registro en la lista
+			while(rs.next()) {
+				
+				//cogemos los valores de las columnas
+				cliente.setID(rs.getInt(1));
+				cliente.setNombre(rs.getString(2));
+				cliente.setTelefono(rs.getInt(3));
+				
+				//metemos el cliente con toda la info en la lista
+				//listacliente.add(client);
+				Buscar=true;
+			}
+			
+			//cerramos conexiones
+			stm.close();
+			rs.close();
+			co.close();
+		}catch(SQLException e) {
+			System.out.println("Error: Clase ClienteDAOImpl, método obtener");
+			e.printStackTrace();
+		}
+		return Buscar;//Devuelve la lista con los clientes y sus datos
+	}
+	
 
 }

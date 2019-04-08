@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import Conexion.Conexion;
 
 
@@ -23,9 +24,9 @@ public class PresupuestoDAOImpl implements PresupuestoDAO {
 		//objetos para la conexion a la base de datos
 		Statement stm = null;
 		Connection con = null;
-		int ClienteID = Integer.parseInt(presupuesto.getCliente());
+		int PresupuestoID = Integer.parseInt(presupuesto.getCliente());
 		//Definimos el query SQL que vamos a utilizar( ojo que accedemos a traves de objeto presupuesto que hemos creado no hace falta instanciar nada)
-		String insert = "INSERT INTO presupuestos values (NULL,'"+ClienteID+"','"+presupuesto.getPrecio()+"')";
+		String insert = "INSERT INTO presupuestos values (NULL,'"+PresupuestoID+"','"+presupuesto.getPrecio()+"')";
 		
 		try {
 			//Hacemos la conexion y ejecutamos el query
@@ -95,7 +96,7 @@ public List<Presupuesto> obtener(){
 		
 		boolean actualizar = false;
 		
-		String updt="UPDATE presupuestos SET Precio='"+presupuesto.getPrecio()+"', Cliente='"+presupuesto.getCliente()+"' WHERE NPresupuesto="+presupuesto.getNPresupuesto();
+		String updt="UPDATE presupuestos SET Precio='"+presupuesto.getPrecio()+"', Presupuesto='"+presupuesto.getCliente()+"' WHERE NPresupuesto="+presupuesto.getNPresupuesto();
 		try {
 			connect = Conexion.conectar();
 			stm = connect.createStatement();
@@ -130,5 +131,47 @@ public List<Presupuesto> obtener(){
 	
 }
 	
+	public boolean Buscar(Presupuesto presupuesto){
+		boolean Buscar=false;
+		//objetos para la conexion a la base de datos
+		Connection co = null;
+		Statement stm = null;
+		ResultSet rs=null;
+		
+		//Establecemos el query para obtener los datos de la base de datos
+		String select= "SELECT * FROM presupuestos WHERE NPresupuesto="+presupuesto.getNPresupuesto();
+		
+		//instanciamos un nuevo arraylist para guardar los datos que vayamos sacando
+		//List<Presupuesto> listapresupuesto = new ArrayList<Presupuesto>();
+		
+		try {
+			//Conexion a la base de datos
+			co = Conexion.conectar();
+			stm = co.createStatement();
+			rs = stm.executeQuery(select);
+			
+			//mientras queden registros ir metiendo las propiedades de cada registro en la lista
+			while(rs.next()) {
+				
+				//cogemos los valores de las columnas
+				presupuesto.setNPresupuesto(rs.getInt(1));
+				presupuesto.setCliente(rs.getString(2));
+				presupuesto.setPrecio(rs.getString(3));
+				
+				//metemos el presupuesto con toda la info en la lista
+				//listapresupuesto.add(client);
+				Buscar=true;
+			}
+			
+			//cerramos conexiones
+			stm.close();
+			rs.close();
+			co.close();
+		}catch(SQLException e) {
+			System.out.println("Error: Clase PresupuestoDAOImpl, método obtener");
+			e.printStackTrace();
+		}
+		return Buscar;//Devuelve la lista con los presupuestos y sus datos
+	}
 
 }

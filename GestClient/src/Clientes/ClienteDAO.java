@@ -7,6 +7,6 @@ public interface ClienteDAO {
 	public List<Cliente> obtener();
 	public boolean actualizar(Cliente cliente);
 	public boolean eliminar(Cliente cliente);
-	
+	public boolean Buscar(Cliente cliente);
 	
 }

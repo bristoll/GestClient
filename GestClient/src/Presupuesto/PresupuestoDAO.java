@@ -7,6 +7,6 @@ public interface PresupuestoDAO {
 	public List<Presupuesto> obtener();
 	public boolean actualizar(Presupuesto presupuesto);
 	public boolean eliminar(Presupuesto presupuesto);
-	
+	public boolean Buscar(Presupuesto presupuesto);
 	
 }
