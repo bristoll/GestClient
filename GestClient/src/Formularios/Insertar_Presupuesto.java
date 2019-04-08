@@ -91,8 +91,8 @@ public class Insertar_Presupuesto extends JFrame {
     
                    while (rs.next()) {
                   //Recupera los campos ID y Nombre para mostrarlos en el desplegable
-                   	comboClient.addItem(""+rs.getObject("ID")+"")+("algo");
-                                   comboClient.add 
+                   	comboClient.addItem(""+rs.getObject("ID")+"");
+                                   
                    }
                    
                    

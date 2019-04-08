@@ -2,6 +2,8 @@ package Formularios;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import Clientes.Cliente;
+import Clientes.ControllerCliente;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Insertar_Cliente extends JFrame {
 
@@ -66,6 +70,23 @@ public class Insertar_Cliente extends JFrame {
 		textTlfn.setColumns(10);
 		
 		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Instanciamos un nuevo cliente
+				Cliente cliente = new Cliente();
+				cliente.setNombre(textNombre.getText());//Obtenemos el nombre introducido en el campo de texto y lo metemos en el setter de la clase cliente
+				int tlfn = Integer.parseInt(textTlfn.getText());//Convertimos el texto obtenido en int para poder meterlo en la base de datos y en el setter de la clase cliente
+				cliente.setTelefono(tlfn);
+				
+				//Instanciamos el controlador para poder usarlo
+				ControllerCliente controlador = new ControllerCliente();
+				
+				//Accedemos a los metodos que queremos usar mediante el controlador
+				controlador.registrar(cliente);
+				controlador.verClientes();
+				
+			}
+		});
 		btnRegistrar.setBounds(168, 159, 97, 25);
 		contentPane.add(btnRegistrar);
 		

@@ -5,7 +5,7 @@ public class Presupuesto {
 	
 	//Definimos los atributos que va a tener nuestra clase cliente(basicamente los campos de nuestra tabla en la base de datos)
 	private int NPresupuesto;
-	private String Cliente;    //Usamos int porque el cliente va a estar identificado por el campo ID no por el camppo nombre
+	private String Cliente;    
 	private String Precio;
 	
 	//"metemos" todas esas propiedades en el objeto Presupuesto que sera público

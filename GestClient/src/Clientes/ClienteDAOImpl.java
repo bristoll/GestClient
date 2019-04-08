@@ -79,7 +79,7 @@ public List<Cliente> obtener(){
 		rs.close();
 		co.close();
 	}catch(SQLException e) {
-		System.out.println("Error: Clase ClienteDAOImpl, método registrar");
+		System.out.println("Error: Clase ClienteDAOImpl, método obtener");
 		e.printStackTrace();
 	}
 	return listacliente;//Devuelve la lista con los clientes y sus datos
@@ -98,7 +98,7 @@ public List<Cliente> obtener(){
 			stm.execute(updt);
 			actualizar = true;
 		}catch(SQLException e){
-			System.out.println("Error: Clase ClienteDAOImpl, método registrar");
+			System.out.println("Error: Clase ClienteDAOImpl, método actualizar");
 			e.printStackTrace();
 		}
 		return actualizar;
@@ -119,7 +119,7 @@ public List<Cliente> obtener(){
 			stm.execute(delete);
 			eliminar = true;
 		}catch(SQLException e) {
-			System.out.println("Error: Clase ClienteDAOImpl, método registrar");
+			System.out.println("Error: Clase ClienteDAOImpl, método eliminar");
 			e.printStackTrace();
 		}
 		return eliminar;
